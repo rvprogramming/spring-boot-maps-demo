@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script
+	  src="https://code.jquery.com/jquery-3.5.1.js"
+	  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+	  crossorigin="anonymous"></script>
+    <script type="text/javascript" th:inline="javascript">
+    $(function() {
+    	var url = "https://www.google.com/maps/embed/v1/place?key=AIzaSyA2ODEi_VdNIzvZoUOxtsz46j51Av77yTI&" + [['q=' + ${loclatlon}]];
+    	$('#mapFrame').attr('src', url);
+    });
+    </script>
+    <!-- Loads the Vaadin widget set, etc. -->
+  	<script type="text/javascript"
+            src="/VAADIN/vaadinBootstrap.js"></script>
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'Place Name: ' + ${userCoords.placeName}" />
+    <p th:text="'Latitude: ' + ${userCoords.latitude}" />
+    <p th:text="'Longitude: ' + ${userCoords.longitude}" />
+    <iframe id="mapFrame" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe><br/>
+    
+    <table cellspacing="1" cellpadding="1" border="1">
+    	<thead>
+    		<tr>
+   		        <th>Time</th>
+		        <th>Sunrise</th>
+		        <th>Sunset</th>
+		        <th>Temp</th>
+		        <th>Feels Like</th>
+		        <th>Pressure</th>
+		        <th>Humidity</th>
+		        <th>Dew Point</th>
+		        <th>UVI</th>
+		        <th>Clouds</th>
+		        <th>Visibility</th>
+		        <th>Wind Speed</th>
+		        <th>Wind Deg</th>
+		        <th>Wind Gust</th>
+		        <th>Prob Precipitation</th>
+	        </tr>
+        </thead>
+        <tbody>
+        	<tr th:each="d : ${data}">
+        		<th:block th:replace="weatherrows :: row(${d})"></th:block>
+        	</tr>
+        </tbody>
+	</table>
+    
+    <a href="/">Submit another request</a>
+</body>
+</html>

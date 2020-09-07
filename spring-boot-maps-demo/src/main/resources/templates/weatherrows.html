@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- This doesn't matter, as it should be injected from the fragment below -->
+    <title>Spring Boot Thymeleaf Application - Fragments Tables</title>
+</head>
+<body>
+
+<table>
+    <tr th:fragment="row(data)">
+        <td th:text="${data.dt}"></td>
+        <td th:text="${data.sunrise}"></td>
+        <td th:text="${data.sunset}"></td>
+        <td th:text="${data.temp}"></td>
+        <td th:text="${data.feels_like}"></td>
+        <td th:text="${data.pressure}"></td>
+        <td th:text="${data.humidity}"></td>
+        <td th:text="${data.dew_point}"></td>
+        <td th:text="${data.uvi}"></td>
+        <td th:text="${data.clouds}"></td>
+        <td th:text="${data.visibility}"></td>
+        <td th:text="${data.wind_speed}"></td>
+        <td th:text="${data.wind_deg}"></td>
+        <td th:text="${data.wind_gust}"></td>
+        <td th:text="${data.pop}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head><title>Home Page</title></head>
+<body>
+	<h1>Hello!</h1>
+	<p>Welcome to <span th:text="${appName}">Our App</span></p>
+	<form action="#" th:action="@{/submit}" th:object="${userCoords}" method="post">
+		<p>Location: <input type="text" th:field="*{placeName}" /></p>
+		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+	</form>
+</body>
+</html>
